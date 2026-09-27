@@ -41,6 +41,8 @@ on:
         required: false
         default: ''
   push:
+    branches:
+      - main
     tags:
       - 'turboacc-v*'
     paths:
