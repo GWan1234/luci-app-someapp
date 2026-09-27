@@ -46,10 +46,12 @@ on:
     paths:
       - '.github/workflows/build-luci-app-turboacc-mtk.yml'
       - 'luci-app-turboacc-mtk/**'
+      - 'Luci-app/luci-app-turboacc-mtk/**'
   pull_request:
     paths:
       - '.github/workflows/build-luci-app-turboacc-mtk.yml'
       - 'luci-app-turboacc-mtk/**'
+      - 'Luci-app/luci-app-turboacc-mtk/**'
 
 permissions:
   contents: write
