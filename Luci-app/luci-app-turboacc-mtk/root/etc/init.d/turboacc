@@ -41,21 +41,11 @@ disable_hnat_runtime() {
 	[ -w "$hnat_path/hnat_setting" ] && echo "8 0" >"$hnat_path/hnat_setting" 2>/dev/null
 }
 
-# Does something else own the HNAT hook right now?
-#
-# HQoS (mtk-hqos on the mtk-hqos tree, mtkhqos_util on the vendor trees) is not
-# an alternative engine to this one: it programs the QDMA queues and then turns
-# the HNAT hook on, because the shaping it applies only takes effect while the
-# hook is enabled.  Switching the hook off underneath it leaves the QoS
-# configuration in place but not accelerating, which is silent - the configured
-# rates simply stop applying, and nothing on either page looks wrong.
-#
-# mtk-hqos gates everything behind one global.enabled switch.  mtkhqos_util has
-# no such switch for the hook: its service enables HNAT by default (hnat=1), so
-# an enabled service owns the hook whether or not shaping is switched on.
-#
-# uci -q get rather than config_load/config_get: config_get reads whichever
-# config was loaded last, and the caller has turboacc loaded at this point.
+# Does an HQoS service own the HNAT hook right now?  mtk-hqos (global.enabled)
+# and mtkhqos_util (its service enables HNAT by default) both program the QDMA
+# queues and then turn the hook on, so switching it off here leaves shaping in
+# place that is not accelerating - silently.  uci -q get, not config_get: the
+# caller has turboacc loaded and config_get reads whichever config was last.
 hqos_drives_hnat() {
 	local v
 
