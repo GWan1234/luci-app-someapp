@@ -934,7 +934,7 @@ return view.extend({
 						el('col', { 'class': 'tf-col-clients' })
 					]),
 					el('thead', {}, [ el('tr', {}, [
-						el('th', { 'class': 'tf-app' }, [ _('Application / site / type') ]),
+						el('th', { 'class': 'tf-app' }, [ _('Application') ]),
 						el('th', { 'class': 'tf-num' }, [ _('Total traffic') ]),
 						el('th', { 'class': 'tf-num' }, [ _('Received') ]),
 						el('th', { 'class': 'tf-num' }, [ _('Sent') ]),

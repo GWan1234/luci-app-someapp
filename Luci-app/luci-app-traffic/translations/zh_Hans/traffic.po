@@ -138,8 +138,8 @@ msgid "Application name"
 msgstr "应用"
 
 #: htdocs/luci-static/resources/view/traffic/overview.js
-msgid "Application / site / type"
-msgstr "应用 / 站点 / 类型"
+msgid "Application"
+msgstr "应用"
 
 #: htdocs/luci-static/resources/view/traffic/overview.js
 msgid "Total traffic"
